@@ -1,0 +1,72 @@
+name: 'Smart Release Notes Generator'
+description: 'Automatically generate comprehensive release notes from your GitHub repository'
+author: 'Kipngetich98'
+branding:
+  icon: 'file-text'
+  color: 'blue'
+
+inputs:
+  token:
+    description: 'GitHub token for API access'
+    required: true
+    default: ${{ github.token }}
+  
+  repository:
+    description: 'The repository in the format owner/repo'
+    required: false
+    default: ${{ github.repository }}
+  
+  tag:
+    description: 'The tag to generate release notes for. If not provided, will use the latest tag'
+    required: false
+  
+  previous-tag:
+    description: 'The previous tag to compare against. If not provided, will use the tag before the current one'
+    required: false
+  
+  config-file:
+    description: 'Path to a custom configuration file'
+    required: false
+    default: '.github/release-notes-config.yml'
+  
+  include-commits:
+    description: 'Whether to include commits in the release notes'
+    required: false
+    default: 'true'
+  
+  include-pull-requests:
+    description: 'Whether to include pull requests in the release notes'
+    required: false
+    default: 'true'
+  
+  include-contributors:
+    description: 'Whether to include contributors in the release notes'
+    required: false
+    default: 'true'
+  
+  categorize:
+    description: 'Whether to categorize changes based on labels or commit messages'
+    required: false
+    default: 'true'
+  
+  output-file:
+    description: 'File to write the release notes to. If not provided, will output to the GitHub step summary'
+    required: false
+  
+  template:
+    description: 'Custom template for the release notes in Handlebars format'
+    required: false
+
+outputs:
+  release-notes:
+    description: 'The generated release notes in markdown format'
+  
+  contributors:
+    description: 'JSON array of contributors to the release'
+  
+  summary:
+    description: 'A summary of the changes in the release'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

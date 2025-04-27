@@ -13,7 +13,7 @@ We currently support the following versions of Smart Release Notes with security
 We take the security of Smart Release Notes seriously. If you believe you've found a security vulnerability, please follow these steps:
 
 1. **Do not disclose the vulnerability publicly**
-2. **Email the details to [security@example.com]** (replace with actual contact)
+2. **Email the details to [kiruivinie1@gmail.com]** (replace with actual contact)
    - Provide a detailed description of the vulnerability
    - Include steps to reproduce the issue
    - Attach any proof-of-concept code if applicable

@@ -22,5 +22,3 @@ This PR implements a complete TypeScript-based GitHub Action for generating comp
 
 The implementation includes Jest tests for the core functionality.
 
-Link to Devin run: https://app.devin.ai/sessions/37e4001204cc447fb4f8d5fb0277eaa1
-Requested by: sidney malingu

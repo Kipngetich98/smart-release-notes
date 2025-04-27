@@ -1,0 +1,73 @@
+name: 'Smart Release Notes Generator'
+description: 'Automatically generate comprehensive release notes from your GitHub repository'
+author: 'Kipngetich98'
+branding:
+  icon: 'file-text'
+  color: 'green'
+
+inputs:
+  token:
+    description: 'GitHub token for API access'
+    required: true
+    default: ${{ github.token }}
+  
+  repository:
+    description: 'Repository in owner/repo format'
+    required: false
+    default: ${{ github.repository }}
+  
+  tag:
+    description: 'Tag to generate release notes for'
+    required: false
+    default: ${{ github.ref }}
+  
+  previous-tag:
+    description: 'Previous tag to compare against'
+    required: false
+  
+  config-file:
+    description: 'Path to configuration file'
+    required: false
+    default: '.github/release-notes-config.yml'
+  
+  include-commits:
+    description: 'Whether to include commits in release notes'
+    required: false
+    default: 'true'
+  
+  include-pull-requests:
+    description: 'Whether to include pull requests in release notes'
+    required: false
+    default: 'true'
+  
+  include-contributors:
+    description: 'Whether to include contributors in release notes'
+    required: false
+    default: 'true'
+  
+  categorize:
+    description: 'Whether to categorize changes based on labels or commit messages'
+    required: false
+    default: 'true'
+  
+  template:
+    description: 'Path to custom Handlebars template file'
+    required: false
+  
+  output-file:
+    description: 'Path to output file for release notes'
+    required: false
+
+outputs:
+  release-notes:
+    description: 'Generated release notes in markdown format'
+  
+  contributors:
+    description: 'JSON array of contributors'
+  
+  summary:
+    description: 'Summary of the generated release notes'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

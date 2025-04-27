@@ -12,36 +12,36 @@ inputs:
     default: ${{ github.token }}
   
   repository:
-    description: 'Repository in owner/repo format'
+    description: 'The repository in the format owner/repo'
     required: false
     default: ${{ github.repository }}
   
   tag:
-    description: 'Tag to generate release notes for'
+    description: 'The tag to generate release notes for. If not provided, will use the latest tag'
     required: false
     default: ${{ github.ref }}
   
   previous-tag:
-    description: 'Previous tag to compare against'
+    description: 'The previous tag to compare against. If not provided, will use the tag before the current one'
     required: false
   
   config-file:
-    description: 'Path to configuration file'
+    description: 'Path to a custom configuration file'
     required: false
     default: '.github/release-notes-config.yml'
   
   include-commits:
-    description: 'Whether to include commits in release notes'
+    description: 'Whether to include commits in the release notes'
     required: false
     default: 'true'
   
   include-pull-requests:
-    description: 'Whether to include pull requests in release notes'
+    description: 'Whether to include pull requests in the release notes'
     required: false
     default: 'true'
   
   include-contributors:
-    description: 'Whether to include contributors in release notes'
+    description: 'Whether to include contributors in the release notes'
     required: false
     default: 'true'
   
@@ -51,22 +51,22 @@ inputs:
     default: 'true'
   
   template:
-    description: 'Path to custom Handlebars template file'
+    description: 'Custom template for the release notes in Handlebars format'
     required: false
   
   output-file:
-    description: 'Path to output file for release notes'
+    description: 'File to write the release notes to. If not provided, will output to the GitHub step summary'
     required: false
 
 outputs:
   release-notes:
-    description: 'Generated release notes in markdown format'
+    description: 'The generated release notes in markdown format'
   
   contributors:
-    description: 'JSON array of contributors'
+    description: 'JSON array of contributors to the release'
   
   summary:
-    description: 'Summary of the generated release notes'
+    description: 'A summary of the changes in the release'
 
 runs:
   using: 'node16'

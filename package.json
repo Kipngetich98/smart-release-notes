@@ -1,0 +1,38 @@
+{
+  "name": "smart-release-notes",
+  "version": "1.0.0",
+  "description": "GitHub Action for generating comprehensive release notes",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "package": "ncc build --source-map --license licenses.txt",
+    "all": "npm run build && npm run lint && npm test && npm run package"
+  },
+  "keywords": [
+    "github",
+    "actions",
+    "release",
+    "notes",
+    "changelog"
+  ],
+  "author": "Kipngetich98",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.15.2",
+    "@vercel/ncc": "^0.38.3",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.3.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/exec": "^1.1.1",
+    "@actions/github": "^6.0.0",
+    "@octokit/rest": "^21.1.1",
+    "handlebars": "^4.7.8",
+    "js-yaml": "^4.1.0"
+  }
+}

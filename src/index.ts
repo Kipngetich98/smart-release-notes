@@ -3,7 +3,7 @@ import * as github from '@actions/github';
 import { generateReleaseNotes } from './releaseNotes';
 import { loadConfig } from './config';
 
-async function run(): Promise<void> {
+export async function run(): Promise<void> {
   try {
     const token = core.getInput('token', { required: true });
     const repository = core.getInput('repository') || github.context.repo.owner + '/' + github.context.repo.repo;
@@ -60,4 +60,6 @@ async function run(): Promise<void> {
   }
 }
 
-run();
+if (require.main === module) {
+  run();
+}

@@ -3,7 +3,7 @@ description: 'Automatically generate comprehensive release notes from your GitHu
 author: 'Kipngetich98'
 branding:
   icon: 'file-text'
-  color: 'blue'
+  color: 'green'
 
 inputs:
   token:
@@ -19,6 +19,7 @@ inputs:
   tag:
     description: 'The tag to generate release notes for. If not provided, will use the latest tag'
     required: false
+    default: ${{ github.ref }}
   
   previous-tag:
     description: 'The previous tag to compare against. If not provided, will use the tag before the current one'
@@ -49,12 +50,12 @@ inputs:
     required: false
     default: 'true'
   
-  output-file:
-    description: 'File to write the release notes to. If not provided, will output to the GitHub step summary'
-    required: false
-  
   template:
     description: 'Custom template for the release notes in Handlebars format'
+    required: false
+  
+  output-file:
+    description: 'File to write the release notes to. If not provided, will output to the GitHub step summary'
     required: false
 
 outputs:
